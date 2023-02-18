@@ -15,5 +15,6 @@ class BlocDependencies {
     injector.registerFactory<ProfileBloc>(() => ProfileBloc());
     injector
         .registerFactory<AllProductsBloc>(() => AllProductsBloc(injector()));
+    injector.registerFactory<OnBoadingBloc>(() => OnBoadingBloc());
   }
 }

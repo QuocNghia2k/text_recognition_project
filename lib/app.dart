@@ -27,7 +27,7 @@ class _AppState extends State<App> {
   Widget _buildApp({AppState? state}) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.signin,
+      initialRoute: Routes.onBoading,
       theme: AppTheme().lightTheme,
       onGenerateRoute: (settings) => Routes.getRoute(settings),
       supportedLocales: S.delegate.supportedLocales,

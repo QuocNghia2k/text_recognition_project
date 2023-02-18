@@ -61,7 +61,9 @@ dependencies:
    # svg image
   flutter_svg: ^1.1.5
   flutter_spinkit: ^5.1.0
-  #search field
+  # launcher icon and splash
+  flutter_launcher_icons: ^0.11.0
+  flutter_native_splash: ^2.2.16
   # searchfield: ^0.7.2
   collection: ^1.16.0
 
@@ -75,6 +77,16 @@ dev_dependencies:
   build_runner:
   flutter_gen_runner:
 
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/png/logo.png
+  android: true
+  ios: true
+
+flutter_icons:
+  image_path: 'assets/images/png/logo.png'
+  ios: true
+  android: true
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 flutter_gen:
