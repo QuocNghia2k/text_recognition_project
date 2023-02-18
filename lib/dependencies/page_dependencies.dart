@@ -32,5 +32,7 @@ class PageDependencies {
         instanceName: Routes.allProduct);
     injector.registerFactory<Widget>(() => OnBoadingPage(injector()),
         instanceName: Routes.onBoading);
+    injector.registerFactory<Widget>(() => TextConvert(injector()),
+        instanceName: Routes.textConvert);
   }
 }

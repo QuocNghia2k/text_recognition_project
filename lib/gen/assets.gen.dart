@@ -188,6 +188,18 @@ class $AssetsImagesSvgGen {
   /// File path: assets/images/svg/ic_user.svg
   SvgGenImage get icUser => const SvgGenImage('assets/images/svg/ic_user.svg');
 
+  /// File path: assets/images/svg/onBoarding3.svg
+  SvgGenImage get onBoarding3 =>
+      const SvgGenImage('assets/images/svg/onBoarding3.svg');
+
+  /// File path: assets/images/svg/onboarding1.svg
+  SvgGenImage get onboarding1 =>
+      const SvgGenImage('assets/images/svg/onboarding1.svg');
+
+  /// File path: assets/images/svg/onboarding2.svg
+  SvgGenImage get onboarding2 =>
+      const SvgGenImage('assets/images/svg/onboarding2.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
         icApple,
@@ -221,7 +233,10 @@ class $AssetsImagesSvgGen {
         icTick,
         icTwitter,
         icUnchose,
-        icUser
+        icUser,
+        onBoarding3,
+        onboarding1,
+        onboarding2
       ];
 }
 

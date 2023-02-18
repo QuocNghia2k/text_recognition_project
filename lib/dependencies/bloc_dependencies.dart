@@ -16,5 +16,6 @@ class BlocDependencies {
     injector
         .registerFactory<AllProductsBloc>(() => AllProductsBloc(injector()));
     injector.registerFactory<OnBoadingBloc>(() => OnBoadingBloc());
+    injector.registerFactory<TextConvertBloc>(() => TextConvertBloc());
   }
 }

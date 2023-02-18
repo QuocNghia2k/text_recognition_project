@@ -33,6 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "check_out": MessageLookupByLibrary.simpleMessage(""),
         "clear_all": MessageLookupByLibrary.simpleMessage("모두 지우기"),
         "color": MessageLookupByLibrary.simpleMessage("색깔"),
+        "convert_text": MessageLookupByLibrary.simpleMessage("kjasdfaksdf"),
         "coupon_code": MessageLookupByLibrary.simpleMessage(""),
         "discount": MessageLookupByLibrary.simpleMessage(""),
         "email_format_is_incorrect":
@@ -73,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "size": MessageLookupByLibrary.simpleMessage(""),
         "sort_by": MessageLookupByLibrary.simpleMessage("정렬 기준"),
         "subtotal": MessageLookupByLibrary.simpleMessage(""),
+        "text_recognition": MessageLookupByLibrary.simpleMessage("Thdasdha"),
         "top_description": MessageLookupByLibrary.simpleMessage("계정이 없으신가요?"),
         "total": MessageLookupByLibrary.simpleMessage(""),
         "username_format_is_incorrect":
