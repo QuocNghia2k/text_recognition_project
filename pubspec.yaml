@@ -68,6 +68,7 @@ dependencies:
   # launcher icon and splash
   flutter_launcher_icons: ^0.11.0
   flutter_native_splash: ^2.2.16
+  onboarding_intro_screen: ^0.0.5
   # searchfield: ^0.7.2
   collection: ^1.16.0
 

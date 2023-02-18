@@ -48,5 +48,7 @@
   "low": "Low",
   "color": "Color",
   "apply": "Apply",
-  "clear_all": "Clear All"
+  "clear_all": "Clear All",
+  "convert_text": "Convert Text",
+  "text_recognition": "Text Recognition"
 }

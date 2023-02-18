@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "check_out": MessageLookupByLibrary.simpleMessage("CHECKOUT"),
         "clear_all": MessageLookupByLibrary.simpleMessage("Clear All"),
         "color": MessageLookupByLibrary.simpleMessage("Color"),
+        "convert_text": MessageLookupByLibrary.simpleMessage("Convert Text"),
         "coupon_code": MessageLookupByLibrary.simpleMessage("Coupon Code"),
         "discount": MessageLookupByLibrary.simpleMessage("Discount"),
         "email_format_is_incorrect":
@@ -77,6 +78,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "size": MessageLookupByLibrary.simpleMessage("Size"),
         "sort_by": MessageLookupByLibrary.simpleMessage("Sort By"),
         "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
+        "text_recognition":
+            MessageLookupByLibrary.simpleMessage("Text Recognition"),
         "top_description":
             MessageLookupByLibrary.simpleMessage("Don’t have an account?"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),

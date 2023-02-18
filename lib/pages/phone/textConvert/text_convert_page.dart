@@ -3,15 +3,21 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:text_recognition_project/blocs/blocs.dart';
+import 'package:text_recognition_project/core/base/base.dart';
+
+import '../../../gen/assets.gen.dart';
+import '../../../resources/resources.dart';
 
 class TextConvert extends StatefulWidget {
-  const TextConvert({super.key});
+  final TextConvertBloc bloc;
+  const TextConvert(this.bloc, {super.key});
 
   @override
   State<TextConvert> createState() => _TextConvertState();
 }
 
-class _TextConvertState extends State<TextConvert> {
+class _TextConvertState extends BaseState<TextConvert, TextConvertBloc> {
   bool textScanning = false;
 
   XFile? imageFile;
@@ -22,7 +28,10 @@ class _TextConvertState extends State<TextConvert> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Text Recognition example"),
+        backgroundColor: AppColors.primaryWhite,
+        title: Padding(
+            padding: EdgeInsets.symmetric(vertical: 16),
+            child: Assets.images.png.logo.image(height: 19, width: 104)),
       ),
       body: Center(
           child: SingleChildScrollView(
@@ -163,4 +172,7 @@ class _TextConvertState extends State<TextConvert> {
   void initState() {
     super.initState();
   }
+
+  @override
+  TextConvertBloc get bloc => widget.bloc;
 }

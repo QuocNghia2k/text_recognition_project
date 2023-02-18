@@ -549,6 +549,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Convert Text`
+  String get convert_text {
+    return Intl.message(
+      'Convert Text',
+      name: 'convert_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Text Recognition`
+  String get text_recognition {
+    return Intl.message(
+      'Text Recognition',
+      name: 'text_recognition',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

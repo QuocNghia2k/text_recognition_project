@@ -27,7 +27,8 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     _widgetOptions = [
       HomePage(widget.homeBloc),
-      SearchPage(widget.searchBloc),
+      Scaffold(),
+      // SearchPage(widget.searchBloc),
       Scaffold(),
       ProfilePage(widget.profileBloc)
     ];
@@ -46,13 +47,11 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        automaticallyImplyLeading: true,
         backgroundColor: AppColors.primaryWhite,
         title: Padding(
             padding: EdgeInsets.symmetric(vertical: 16),
             child: Assets.images.png.logo.image(height: 19, width: 104)),
-        leading: IconButton(
-            icon: Assets.images.svg.icFeatherMenu.svg(height: 18, width: 22),
-            onPressed: () {}),
         actions: [
           IconButton(
               icon: Assets.images.svg.icShoppingCart.svg(height: 21, width: 22),

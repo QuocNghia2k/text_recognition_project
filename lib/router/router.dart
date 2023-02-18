@@ -21,6 +21,8 @@ class Routes {
 
   static String get onBoading => '/on_boading';
 
+  static String get textConvert => '/text_convert';
+
   static getRoute(RouteSettings settings) {
     Widget widget;
     if (settings.name == root) {
