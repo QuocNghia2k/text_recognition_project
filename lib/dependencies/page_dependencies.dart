@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:text_recognition_project/pages/phone/onBoading/on_boading_page.dart';
 
 import '../pages/pages.dart';
 import '../router/router.dart';
@@ -29,5 +30,7 @@ class PageDependencies {
         instanceName: Routes.profile);
     injector.registerFactory<Widget>(() => AllProductsPage(injector()),
         instanceName: Routes.allProduct);
+    injector.registerFactory<Widget>(() => OnBoadingPage(injector()),
+        instanceName: Routes.onBoading);
   }
 }

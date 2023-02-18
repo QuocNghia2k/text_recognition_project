@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 class Routes {
+  static String get root => '/';
   static String get splash => '/splash';
   static String get main => '/main';
   static String get home => '/home';
-  static String get search=>'/search';
+  static String get search => '/search';
 
   static String get product => '/product';
 
@@ -15,10 +16,16 @@ class Routes {
   static String get cart => '/cart';
 
   static String get profile => '/profile';
+
   static String get allProduct => '/allProduct';
+
+  static String get onBoading => '/on_boading';
 
   static getRoute(RouteSettings settings) {
     Widget widget;
+    if (settings.name == root) {
+      return null;
+    }
     try {
       widget = GetIt.I.get<Widget>(instanceName: settings.name);
     } catch (e) {
