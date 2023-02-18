@@ -54,6 +54,10 @@ dependencies:
   # Managing configurations
   global_configuration: ^2.0.0-nullsafety.1
 
+  #text recognition
+  google_ml_kit: ^0.7.3
+  image_picker: ^0.8.4+9
+
   # network
   internet_connection_checker: ^0.0.1+3
   dio: ^4.0.0
