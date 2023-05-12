@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:open_file_plus/open_file_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../blocs/blocs.dart';
-import 'package:docx_template/docx_template.dart';
 
 import '../../../core/core.dart';
 import '../../../gen/assets.gen.dart';
@@ -29,35 +29,42 @@ class _SaveWorldPageState extends BaseState<SaveWorldPage, SaveWorldBloc> {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            String nameFile = "test";
-            writeDocxFile(nameFile, "hello");
-            openFile(nameFile);
+            String path = "test.txt";
+            createFile(path);
+            writeToFile(path, "hihihihihi");
+            openTextFile(path);
           },
-          child: Text("test"),
+          child: Text(
+            "test",
+            style: TextStyle(color: AppColors.primaryBlack),
+          ),
         ),
       ),
     );
   }
 
-  Future<void> writeDocxFile(String nameFile, String content) async {
-    final file = File("${nameFile}.docx");
+  void writeToFile(String filePath, String content) {
+    final file = File(filePath);
 
-    // Open the file in write mode
-    final randomAccessFile = file.openSync(mode: FileMode.write);
-
-    // Write the text to the file
-    randomAccessFile.writeStringSync(content);
-
-    // Close the file
-    randomAccessFile.closeSync();
+    file.writeAsString(content).then((_) {
+      print('Content written to file successfully.');
+    }).catchError((error) {
+      print('Error writing to file: $error');
+    });
   }
 
-  void openFile(String nameFile) async {
-    if (await canLaunch("${nameFile}.docx")) {
-      await launch("${nameFile}.docx");
-    } else {
-      throw 'Could not open file';
-    }
+  void createFile(String filePath) {
+    final file = File(filePath);
+
+    file.create().then((_) {
+      print('File created successfully.');
+    }).catchError((error) {
+      print('Error creating file: $error');
+    });
+  }
+
+  void openTextFile(String filePath) async {
+    OpenFile.open(filePath);
   }
 
   @override
