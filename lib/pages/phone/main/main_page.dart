@@ -8,13 +8,9 @@ import '../../../resources/resources.dart';
 
 class MainPage extends StatefulWidget {
   final HomeBloc homeBloc;
-  final SearchBloc searchBloc;
   final ProfileBloc profileBloc;
 
-  const MainPage(
-      {required this.homeBloc,
-      required this.searchBloc,
-      required this.profileBloc});
+  const MainPage({required this.homeBloc, required this.profileBloc});
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -25,13 +21,7 @@ class _MainPageState extends State<MainPage> {
   List<Widget> _widgetOptions = [];
   @override
   void initState() {
-    _widgetOptions = [
-      HomePage(widget.homeBloc),
-      Scaffold(),
-      // SearchPage(widget.searchBloc),
-      Scaffold(),
-      ProfilePage(widget.profileBloc)
-    ];
+    _widgetOptions = [HomePage(widget.homeBloc), Scaffold(), ProfilePage(widget.profileBloc)];
     super.initState();
   }
 
@@ -49,13 +39,9 @@ class _MainPageState extends State<MainPage> {
         centerTitle: true,
         automaticallyImplyLeading: false,
         backgroundColor: AppColors.primaryWhite,
-        title: Padding(
-            padding: EdgeInsets.symmetric(vertical: 16),
-            child: Assets.images.png.logo.image(height: 19, width: 104)),
+        title: Padding(padding: EdgeInsets.symmetric(vertical: 16), child: Assets.images.png.logo.image(height: 19, width: 104)),
         actions: [
-          IconButton(
-              icon: Assets.images.svg.icShoppingCart.svg(height: 21, width: 22),
-              onPressed: () {}),
+          IconButton(icon: Assets.images.svg.icShoppingCart.svg(height: 21, width: 22), onPressed: () {}),
         ],
       ),
       body: Center(
@@ -69,23 +55,15 @@ class _MainPageState extends State<MainPage> {
         items: [
           BottomNavigationBarItem(
               icon: Assets.images.svg.icHome.svg(width: 24, height: 24),
-              activeIcon: Assets.images.svg.icHome
-                  .svg(color: AppColors.darkCharcoal, width: 24, height: 24),
+              activeIcon: Assets.images.svg.icHome.svg(color: AppColors.darkCharcoal, width: 24, height: 24),
               label: localization.home),
           BottomNavigationBarItem(
-              icon: Assets.images.svg.icSearch.svg(width: 24, height: 24),
-              activeIcon: Assets.images.svg.icSearch
-                  .svg(color: AppColors.darkCharcoal, width: 24, height: 24),
-              label: localization.search),
-          BottomNavigationBarItem(
               icon: Assets.images.svg.icFavorite.svg(width: 24, height: 24),
-              activeIcon: Assets.images.svg.icFavorite
-                  .svg(color: AppColors.darkCharcoal, width: 24, height: 24),
+              activeIcon: Assets.images.svg.icFavorite.svg(color: AppColors.darkCharcoal, width: 24, height: 24),
               label: localization.wishlist),
           BottomNavigationBarItem(
               icon: Assets.images.svg.icNarbarUser.svg(width: 24, height: 24),
-              activeIcon: Assets.images.svg.icNarbarUser
-                  .svg(color: AppColors.darkCharcoal, width: 24, height: 24),
+              activeIcon: Assets.images.svg.icNarbarUser.svg(color: AppColors.darkCharcoal, width: 24, height: 24),
               label: localization.profile),
         ],
         currentIndex: _selectedIndex,

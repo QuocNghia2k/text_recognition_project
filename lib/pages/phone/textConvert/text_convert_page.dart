@@ -3,21 +3,23 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:text_recognition_project/blocs/blocs.dart';
-import 'package:text_recognition_project/core/base/base.dart';
+import '../../../blocs/blocs.dart';
+import '../../../core/base/base.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../../resources/resources.dart';
+import '../../../router/router.dart';
+import '../../../widgets/inkwell_wrapper.dart';
 
-class TextConvert extends StatefulWidget {
+class TextConvertPage extends StatefulWidget {
   final TextConvertBloc bloc;
-  const TextConvert(this.bloc, {super.key});
+  const TextConvertPage(this.bloc, {super.key});
 
   @override
-  State<TextConvert> createState() => _TextConvertState();
+  State<TextConvertPage> createState() => _TextConvertPageState();
 }
 
-class _TextConvertState extends BaseState<TextConvert, TextConvertBloc> {
+class _TextConvertPageState extends BaseState<TextConvertPage, TextConvertBloc> {
   bool textScanning = false;
 
   XFile? imageFile;
@@ -29,9 +31,7 @@ class _TextConvertState extends BaseState<TextConvert, TextConvertBloc> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: AppColors.primaryWhite,
-        title: Padding(
-            padding: EdgeInsets.symmetric(vertical: 16),
-            child: Assets.images.png.logo.image(height: 19, width: 104)),
+        title: Padding(padding: EdgeInsets.symmetric(vertical: 16), child: Assets.images.png.logo.image(height: 19, width: 104)),
       ),
       body: Center(
           child: SingleChildScrollView(
@@ -60,15 +60,13 @@ class _TextConvertState extends BaseState<TextConvert, TextConvertBloc> {
                             onPrimary: Colors.grey,
                             shadowColor: Colors.grey[400],
                             elevation: 10,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0)),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
                           ),
                           onPressed: () {
                             getImage(ImageSource.gallery);
                           },
                           child: Container(
-                            margin: const EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 5),
+                            margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -78,8 +76,7 @@ class _TextConvertState extends BaseState<TextConvert, TextConvertBloc> {
                                 ),
                                 Text(
                                   "Gallery",
-                                  style: TextStyle(
-                                      fontSize: 13, color: Colors.grey[600]),
+                                  style: TextStyle(fontSize: 13, color: Colors.grey[600]),
                                 )
                               ],
                             ),
@@ -94,15 +91,13 @@ class _TextConvertState extends BaseState<TextConvert, TextConvertBloc> {
                             onPrimary: Colors.grey,
                             shadowColor: Colors.grey[400],
                             elevation: 10,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0)),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
                           ),
                           onPressed: () {
                             getImage(ImageSource.camera);
                           },
                           child: Container(
-                            margin: const EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 5),
+                            margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -112,8 +107,7 @@ class _TextConvertState extends BaseState<TextConvert, TextConvertBloc> {
                                 ),
                                 Text(
                                   "Camera",
-                                  style: TextStyle(
-                                      fontSize: 13, color: Colors.grey[600]),
+                                  style: TextStyle(fontSize: 13, color: Colors.grey[600]),
                                 )
                               ],
                             ),
@@ -129,7 +123,18 @@ class _TextConvertState extends BaseState<TextConvert, TextConvertBloc> {
                     scannedText,
                     style: TextStyle(fontSize: 20),
                   ),
-                )
+                ),
+                InkWellWrapper(
+                  color: AppColors.primaryBlack,
+                  child: Text(
+                    localization.save_file_world,
+                    style: theme.textTheme.titleSmall?.copyWith(color: AppColors.primaryWhite, fontWeight: FontWeight.w400),
+                  ),
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.saveWorld);
+                  },
+                  paddingChild: EdgeInsets.symmetric(vertical: 17, horizontal: 60),
+                ),
               ],
             )),
       )),
