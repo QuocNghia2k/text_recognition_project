@@ -23,6 +23,8 @@ class Routes {
 
   static String get textConvert => '/text_convert';
 
+  static String get saveWorld => '/save_world';
+
   static getRoute(RouteSettings settings) {
     Widget widget;
     if (settings.name == root) {
@@ -37,8 +39,7 @@ class Routes {
           child: Builder(
             builder: (context) {
               return Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32.0),
+                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32.0),
                 child: Text(
                   '404 NOT FOUND',
                   textAlign: TextAlign.center,
