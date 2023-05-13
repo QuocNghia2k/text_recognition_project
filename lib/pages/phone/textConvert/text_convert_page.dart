@@ -131,7 +131,9 @@ class _TextConvertPageState extends BaseState<TextConvertPage, TextConvertBloc> 
                     style: theme.textTheme.titleSmall?.copyWith(color: AppColors.primaryWhite, fontWeight: FontWeight.w400),
                   ),
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.saveWorld);
+                    if (scannedText.isNotEmpty) {
+                      Navigator.pushNamed(context, Routes.saveWorld, arguments: scannedText);
+                    }
                   },
                   paddingChild: EdgeInsets.symmetric(vertical: 17, horizontal: 60),
                 ),
