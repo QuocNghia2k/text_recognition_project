@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1032161510153-925lc0q5n2qlla9orht8a4f54q8te6k6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1032161510153-925lc0q5n2qlla9orht8a4f54q8te6k6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBLyK0KOhNg4MoUgR9vKI6KTLDwM9WZYNk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1032161510153</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.textRecognitionProject</string>
+	<key>PROJECT_ID</key>
+	<string>textrecognition-3dd9e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>textrecognition-3dd9e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1032161510153:ios:d1e0eb4becd0f5ad58c9d8</string>
+</dict>
+</plist>
