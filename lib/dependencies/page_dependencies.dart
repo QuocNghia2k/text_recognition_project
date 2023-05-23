@@ -24,5 +24,6 @@ class PageDependencies {
     injector.registerFactory<Widget>(() => OnBoadingPage(injector()), instanceName: Routes.onBoading);
     injector.registerFactory<Widget>(() => TextConvertPage(injector()), instanceName: Routes.textConvert);
     injector.registerFactory<Widget>(() => SaveWorldPage(injector()), instanceName: Routes.saveWorld);
+    injector.registerFactory<Widget>(() => SignupPage(), instanceName: Routes.signup);
   }
 }

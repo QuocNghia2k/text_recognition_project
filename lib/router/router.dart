@@ -25,6 +25,8 @@ class Routes {
 
   static String get saveWorld => '/save_world';
 
+  static String get signup => '/signup';
+
   static getRoute(RouteSettings settings) {
     Widget widget;
     if (settings.name == root) {
