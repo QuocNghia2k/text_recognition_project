@@ -176,38 +176,6 @@ class _TextConvertPageState extends BaseState<TextConvertPage, TextConvertBloc> 
     );
   }
 
-  void getImage(ImageSource source) async {
-    try {
-      final pickedImage = await ImagePicker().pickImage(source: source);
-      if (pickedImage != null) {
-        textScanning = true;
-        imageFile = pickedImage;
-        setState(() {});
-        getRecognisedText(pickedImage);
-      }
-    } catch (e) {
-      textScanning = false;
-      imageFile = null;
-      scannedText = "Error occured while scanning";
-      setState(() {});
-    }
-  }
-
-  void getRecognisedText(XFile image) async {
-    final inputImage = InputImage.fromFilePath(image.path);
-    final textDetector = GoogleMlKit.vision.textDetector();
-    RecognisedText recognisedText = await textDetector.processImage(inputImage);
-    await textDetector.close();
-    scannedText = "";
-    for (TextBlock block in recognisedText.blocks) {
-      for (TextLine line in block.lines) {
-        scannedText = scannedText + line.text + "\n";
-      }
-    }
-    textScanning = false;
-    setState(() {});
-  }
-
   Future<void> _getImageData() async {
     //save file
     final dir = await getTemporaryDirectory();
