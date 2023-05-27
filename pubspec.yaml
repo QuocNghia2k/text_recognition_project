@@ -57,6 +57,7 @@ dependencies:
   #text recognition
   google_ml_kit: ^0.7.3
   image_picker: ^0.8.4+9
+  flutter_drawing_board: ^0.4.4+2
 
   # network
   internet_connection_checker: ^0.0.1+3
