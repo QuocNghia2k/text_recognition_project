@@ -25,5 +25,6 @@ class PageDependencies {
     injector.registerFactory<Widget>(() => TextConvertPage(injector()), instanceName: Routes.textConvert);
     injector.registerFactory<Widget>(() => SaveWorldPage(injector()), instanceName: Routes.saveWorld);
     injector.registerFactory<Widget>(() => SignupPage(), instanceName: Routes.signup);
+    injector.registerFactory<Widget>(() => TextConvertToImagePage(injector()), instanceName: Routes.textConvertImage);
   }
 }

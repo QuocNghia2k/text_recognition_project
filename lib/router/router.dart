@@ -27,6 +27,8 @@ class Routes {
 
   static String get signup => '/signup';
 
+  static String get textConvertImage => '/text_convert_image';
+
   static getRoute(RouteSettings settings) {
     Widget widget;
     if (settings.name == root) {
