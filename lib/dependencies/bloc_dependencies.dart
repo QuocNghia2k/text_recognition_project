@@ -16,5 +16,6 @@ class BlocDependencies {
     injector.registerFactory<OnBoadingBloc>(() => OnBoadingBloc());
     injector.registerFactory<TextConvertBloc>(() => TextConvertBloc());
     injector.registerFactory<SaveWorldBloc>(() => SaveWorldBloc());
+    injector.registerFactory<HistoryBloc>(() => HistoryBloc());
   }
 }

@@ -9,8 +9,9 @@ import '../../../resources/resources.dart';
 class MainPage extends StatefulWidget {
   final HomeBloc homeBloc;
   final ProfileBloc profileBloc;
+  final HistoryBloc historyBloc;
 
-  const MainPage({required this.homeBloc, required this.profileBloc});
+  const MainPage({required this.homeBloc, required this.profileBloc, required this.historyBloc});
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -21,7 +22,7 @@ class _MainPageState extends State<MainPage> {
   List<Widget> _widgetOptions = [];
   @override
   void initState() {
-    _widgetOptions = [HomePage(widget.homeBloc), Scaffold(), ProfilePage(widget.profileBloc)];
+    _widgetOptions = [HomePage(widget.homeBloc), HistoryPage(widget.historyBloc), ProfilePage(widget.profileBloc)];
     super.initState();
   }
 

@@ -14,6 +14,7 @@ class PageDependencies {
         () => MainPage(
               homeBloc: injector(),
               profileBloc: injector(),
+              historyBloc: injector(),
             ),
         instanceName: Routes.main);
     injector.registerFactory<Widget>(() => ProductPage(injector()), instanceName: Routes.product);
@@ -26,5 +27,6 @@ class PageDependencies {
     injector.registerFactory<Widget>(() => SaveWorldPage(injector()), instanceName: Routes.saveWorld);
     injector.registerFactory<Widget>(() => SignupPage(), instanceName: Routes.signup);
     injector.registerFactory<Widget>(() => TextConvertToImagePage(injector()), instanceName: Routes.textConvertImage);
+    injector.registerFactory<Widget>(() => HistoryPage(injector()), instanceName: Routes.history);
   }
 }

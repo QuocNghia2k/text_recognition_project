@@ -69,65 +69,6 @@ class _HomePageState extends BaseState<HomePage, HomeBloc> {
     );
   }
 
-  // SingleChildScrollView _homeDefault() {
-  //   return SingleChildScrollView(
-  //     padding: EdgeInsets.symmetric(vertical: 24, horizontal: 20),
-  //     physics: AlwaysScrollableScrollPhysics(),
-  //     child: StreamBuilder<List<CategoryModel>?>(
-  //       stream: widget.bloc.listCategory,
-  //       builder: (context, snapshot) {
-  //         if (!snapshot.hasData) {
-  //           return Center(
-  //             child: SpinKitFadingCircle(color: AppColors.primaryBlack),
-  //           );
-  //         } else {
-  //           return Column(
-  //             children: [
-  //               Row(
-  //                 mainAxisSize: MainAxisSize.max,
-  //                 children: [
-  //                   Expanded(
-  //                       child: CategoryBlock(
-  //                     imgBackground: '${snapshot.data![0].urlImage}',
-  //                     child: Text(snapshot.data?[0].name ?? "",
-  //                         style: theme.textTheme.titleSmall?.copyWith(
-  //                             color: AppColors.darkCharcoal,
-  //                             fontWeight: FontWeight.w500)),
-  //                     onTap: () =>
-  //                         Navigator.pushNamed(context, Routes.allProduct),
-  //                   )),
-  //                   SizedBox(
-  //                     width: 14,
-  //                   ),
-  //                   Expanded(
-  //                       child: CategoryBlock(
-  //                     imgBackground: '${snapshot.data![1].urlImage}',
-  //                     child: Text(snapshot.data?[1].name ?? "",
-  //                         style: theme.textTheme.titleSmall),
-  //                     onTap: () {},
-  //                   ))
-  //                 ],
-  //               ),
-  //               ...List.generate(
-  //                   snapshot.data!.length - 2,
-  //                   (index) => CategoryBlock(
-  //                         imgBackground:
-  //                             '${snapshot.data![index + 2].urlImage}',
-  //                         child: Text(
-  //                           snapshot.data?[index + 2].name ?? "",
-  //                           style: theme.textTheme.headlineLarge,
-  //                         ),
-  //                         isButton: false,
-  //                         onTap: () {},
-  //                       )),
-  //             ],
-  //           );
-  //         }
-  //       },
-  //     ),
-  //   );
-  // }
-
   @override
   HomeBloc get bloc => widget.bloc;
 }
