@@ -12,3 +12,4 @@ export 'save_world/save_world.dart';
 export 'signup/signup.dart';
 export 'textConvertToImage/text_convert_to_image.dart';
 export 'historis/history.dart';
+export 'fileEdit/file_edit.dart';

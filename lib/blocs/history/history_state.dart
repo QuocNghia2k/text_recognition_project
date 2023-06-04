@@ -14,7 +14,7 @@ class HistoryState extends Equatable {
     List<HistoryModel>? data,
   })  : success = success ?? state?.success,
         error = error ?? state?.error,
-        data = data ?? state?.data;
+        data = data;
 
   @override
   List<Object?> get props => [success, error, data];

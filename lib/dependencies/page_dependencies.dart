@@ -28,5 +28,6 @@ class PageDependencies {
     injector.registerFactory<Widget>(() => SignupPage(), instanceName: Routes.signup);
     injector.registerFactory<Widget>(() => TextConvertToImagePage(injector()), instanceName: Routes.textConvertImage);
     injector.registerFactory<Widget>(() => HistoryPage(injector()), instanceName: Routes.history);
+    injector.registerFactory<Widget>(() => FileEditPage(injector()), instanceName: Routes.fileEdit);
   }
 }

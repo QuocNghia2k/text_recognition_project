@@ -17,24 +17,25 @@ class HistoryBloc extends BaseBloc<HistoryState> {
 
   Stream<List<HistoryModel>?> get historyStream => stateStream.map((event) => event.data);
 
-  Future<void> loadData() async {}
-
   Future<void> getData() async {
     var currentUserLogin = await FirebaseAuth.instance.currentUser;
     List<HistoryModel> currentData = [];
     await collection.where("email", isEqualTo: "${currentUserLogin?.email}").get().then((querySnapshot) {
       for (int i = 0; i < querySnapshot.size; i++) {
         var a = querySnapshot.docChanges[i];
-        print("id: ${a.doc.id}::: data: ${a.doc.data()}");
-        // var timeData = a.doc.data()?["time_create"] as Timestamp;
-        // var inputFormat = DateFormat('yyyy-MM-dd HH:mm');
-        // var inputDate = inputFormat.parse(timeData.toDate().toString());
-        // print("convert date tine::: ${inputDate.toString()}");
-        currentData.add(HistoryModel.fromJson(a.doc.data() ?? {}, id: a.doc.id));
+        var currentId = a.doc.id.toString();
+        currentData.add(HistoryModel.fromJson(a.doc.data() ?? {}, idData: currentId));
       }
       emit(HistoryState(state: state, data: List.from(currentData)));
     });
-    print(currentData);
+  }
+
+  Future<void> updateData(String idUpdate, String content) async {
+    await collection.doc(idUpdate).update({"content": content});
+  }
+
+  Future<void> deleteData(HistoryModel data) async {
+    await collection.doc(data.id).delete();
   }
 
   @override
