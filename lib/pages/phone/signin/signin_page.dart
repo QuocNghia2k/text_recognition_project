@@ -65,12 +65,6 @@ class _SigninPageState extends BaseState<SigninPage, SignInBloc> {
         backgroundColor: AppColors.primaryWhite,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          leading: IconButton(
-            icon: asset.svg.icArrowBack.svg(),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
           elevation: 0,
         ),
         body: StreamBuilder<User?>(
@@ -115,24 +109,8 @@ class _SigninPageState extends BaseState<SigninPage, SignInBloc> {
                           _checkValidate();
                         },
                       ),
-                      Container(
-                        padding: EdgeInsets.only(bottom: 35, top: 19),
-                        alignment: Alignment.centerRight,
-                        child: InkWellWrapper(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(vertical: 5),
-                            child: Text(
-                              localization.forgot_password,
-                              style: theme.textTheme.labelSmall?.copyWith(
-                                fontFamily: FontFamily.montserrat,
-                                color: AppColors.darkCharcoal,
-                              ),
-                            ),
-                          ),
-                          onTap: () {},
-                        ),
-                      ),
                       InkWellWrapper(
+                        margin: EdgeInsets.only(top: 100),
                         color: AppColors.primaryBlack,
                         child: Text(
                           localization.sign_in,

@@ -25,7 +25,6 @@ class _ProfilePageState extends BaseState<ProfilePage, ProfileBloc> {
     "Setting": "def"
   };
   late final data;
-
   @override
   void initState() {
     super.initState();
@@ -37,18 +36,7 @@ class _ProfilePageState extends BaseState<ProfilePage, ProfileBloc> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          PersonAvatar(),
-          // Padding(
-          //     padding: EdgeInsets.symmetric(vertical: 24, horizontal: 21),
-          //     child: Column(
-          //       children: [
-          //         ...List.generate(
-          //             data.length,
-          //             (index) => ExpansionItemOption(
-          //                 headerValue: data[index].key,
-          //                 expandValue: data[index].value))
-          //       ],
-          //     ))
+          PersonAvatar(emailUser: FirebaseAuth.instance.currentUser?.email ?? ""),
           InkWellWrapper(
             color: AppColors.primaryBlack,
             child: Text(
