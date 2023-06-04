@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:text_recognition_project/data/data.dart';
+import 'package:text_recognition_project/extensions/extensions.dart';
 import '../../../core/base/base.dart';
 import '../../../blocs/blocs.dart';
 import '../../../resources/resources.dart';
@@ -14,6 +17,14 @@ class HistoryPage extends StatefulWidget {
 }
 
 class _HistoryPageState extends BaseState<HistoryPage, HistoryBloc> {
+  @override
+  void initState() {
+    FirebaseFirestore.instance.collection('historis').snapshots().listen((event) {
+      bloc.getData();
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,10 +56,29 @@ class _HistoryPageState extends BaseState<HistoryPage, HistoryBloc> {
                   style: theme.textTheme.titleSmall?.copyWith(color: AppColors.primaryWhite, fontWeight: FontWeight.w400),
                 ),
                 onTap: () {
-                  bloc.setData({});
+                  // bloc.setData(HistoryModel(email: ));
                 },
                 paddingChild: EdgeInsets.symmetric(vertical: 17, horizontal: 60),
               ),
+              StreamBuilder<List<HistoryModel>?>(
+                  stream: bloc.historyStream,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return ListView.builder(
+                          itemCount: snapshot.data?.length,
+                          physics: NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemBuilder: (_, index) {
+                            var data = snapshot.data?[index];
+                            return Text("name: ${data?.email} ---  time: ${data?.timeCreate?.convertDateFormat()}");
+                          });
+                    } else {
+                      return Text(
+                        "Not data",
+                        style: theme.textTheme.titleSmall?.copyWith(color: AppColors.darkCharcoal, fontWeight: FontWeight.w400),
+                      );
+                    }
+                  })
             ],
           ),
         ),

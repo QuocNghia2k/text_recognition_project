@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
+import 'package:text_recognition_project/data/data.dart';
 
 import '../../core/core.dart';
 import '../blocs.dart';
@@ -13,24 +15,26 @@ class HistoryBloc extends BaseBloc<HistoryState> {
   Stream<bool?> get successStream => stateStream.map((event) => event.success).distinct();
   Stream<String?> get errorStream => stateStream.map((event) => event.error);
 
+  Stream<List<HistoryModel>?> get historyStream => stateStream.map((event) => event.data);
+
   Future<void> loadData() async {}
 
   Future<void> getData() async {
-    await collection.get().then((querySnapshot) {
+    var currentUserLogin = await FirebaseAuth.instance.currentUser;
+    List<HistoryModel> currentData = [];
+    await collection.where("email", isEqualTo: "${currentUserLogin?.email}").get().then((querySnapshot) {
       for (int i = 0; i < querySnapshot.size; i++) {
         var a = querySnapshot.docChanges[i];
         print("id: ${a.doc.id}::: data: ${a.doc.data()}");
-        var timeData = a.doc.data()?["time_create"] as Timestamp;
-        var inputFormat = DateFormat('yyyy-MM-dd HH:mm');
-        var inputDate = inputFormat.parse(timeData.toDate().toString());
-        print("convert date tine::: ${inputDate.toString()}");
+        // var timeData = a.doc.data()?["time_create"] as Timestamp;
+        // var inputFormat = DateFormat('yyyy-MM-dd HH:mm');
+        // var inputDate = inputFormat.parse(timeData.toDate().toString());
+        // print("convert date tine::: ${inputDate.toString()}");
+        currentData.add(HistoryModel.fromJson(a.doc.data() ?? {}, id: a.doc.id));
       }
+      emit(HistoryState(state: state, data: List.from(currentData)));
     });
-  }
-
-  Future<void> setData(Map<String, dynamic> data) async {
-    Map<String, dynamic> data = {"content": "hahaha", "email": "nghia@gmail.com", "time_create": Timestamp.now(), "name_file": "hehe"};
-    await collection.add(data).then((value) => print("add conpelete")).catchError((e) => print("add failt"));
+    print(currentData);
   }
 
   @override

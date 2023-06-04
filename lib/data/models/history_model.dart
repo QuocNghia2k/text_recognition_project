@@ -9,8 +9,8 @@ class HistoryModel {
 
   HistoryModel({this.id, this.content, this.email, this.timeCreate, this.nameFile});
 
-  HistoryModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+  HistoryModel.fromJson(Map<String, dynamic> json, {String? id}) {
+    id = id;
     content = json['content'];
     email = json['email'];
     timeCreate = json['time_create'] as Timestamp;
