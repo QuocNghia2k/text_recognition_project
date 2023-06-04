@@ -1,8 +1,11 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:open_file_plus/open_file_plus.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:text_recognition_project/data/data.dart';
 import '../../../blocs/blocs.dart';
 
 import '../../../core/core.dart';
@@ -73,8 +76,8 @@ class _SaveWorldPageState extends BaseState<SaveWorldPage, SaveWorldBloc> {
                   _dialogBuilder(context);
                   return;
                 } else {
+                  _saveHistoryFile();
                   writeToFile(_nameFileController.text, content);
-                  openTextFile(_nameFileController.text);
                 }
               },
               child: Text(
@@ -92,9 +95,6 @@ class _SaveWorldPageState extends BaseState<SaveWorldPage, SaveWorldBloc> {
     File file = File('$pathFile/$filePath.txt'); // 1
     file.create(exclusive: true);
     file.writeAsString(content);
-  }
-
-  void openTextFile(String filePath) async {
     OpenFile.open("$pathFile/$filePath.txt");
   }
 
@@ -124,6 +124,12 @@ class _SaveWorldPageState extends BaseState<SaveWorldPage, SaveWorldBloc> {
         );
       },
     );
+  }
+
+  Future<void> _saveHistoryFile() async {
+    var currentUserLogin = await FirebaseAuth.instance.currentUser;
+    var data = HistoryModel(email: currentUserLogin?.email, content: content, nameFile: _nameFileController.text, timeCreate: Timestamp.now());
+    await FirebaseFirestore.instance.collection('historis').add(data.toJson());
   }
 
   @override

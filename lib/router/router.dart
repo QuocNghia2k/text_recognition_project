@@ -29,6 +29,10 @@ class Routes {
 
   static String get textConvertImage => '/text_convert_image';
 
+  static String get history => '/history';
+
+  static String get fileEdit => '/file_edit';
+
   static getRoute(RouteSettings settings) {
     Widget widget;
     if (settings.name == root) {
